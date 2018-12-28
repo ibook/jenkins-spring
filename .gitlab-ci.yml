@@ -2,10 +2,15 @@ image: java:8
 
 stages:
   - build
+  - test
 
 build:
   stage: build
-  script: ./mvn package
+  script: mvn package
   artifacts:
     paths:
       - target/*.jar
+
+test:
+  stage: test
+  script: mvn test
