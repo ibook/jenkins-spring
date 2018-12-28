@@ -10,7 +10,7 @@ build:
   script: mvn package
   artifacts:
     paths:
-      - target/*.jar
+      - target/java-project-0.0.1-SNAPSHOT.jar
 
 test:
   stage: test
