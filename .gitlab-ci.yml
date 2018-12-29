@@ -4,7 +4,7 @@ image: maven:3.5.0-jdk-8
 
 cache:
   paths:
-    - .m2/repository/
+    - maven.repository/
     - target/
 
 stages:
