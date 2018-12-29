@@ -16,7 +16,10 @@ public class ApplicationTests {
 	public void contextLoads() {
 		Assert.assertEquals(5,5);
 	}
-	
+	@Test
+	public void success() {
+		Assert.assertEquals(10,10);
+	}
 	@Test
 	public void failures() {
 		Assert.assertEquals(10,10);
