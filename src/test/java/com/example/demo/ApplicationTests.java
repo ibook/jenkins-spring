@@ -24,6 +24,9 @@ public class ApplicationTests {
 	public void failures() {
 		Assert.assertEquals(10,10);
 	}
-
+	@Test
+	public void skipped() {
+		Assert.assertEquals(10,10);
+	}
 }
 
