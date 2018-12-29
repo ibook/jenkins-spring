@@ -1,17 +1,29 @@
 #image: java:8
-image: maven:latest
+#image: maven:latest
+image: maven:3.5.0-jdk-8
+
+cache:
+  paths:
+    - .m2/repository/
+    - target/
 
 stages:
   - build
   - test
+  - package
 
 build:
   stage: build
+  script: mvn compile
+
+unittest:
+  stage: test
+  script: mvn test
+  
+  
+package:
+  stage: package
   script: mvn package
   artifacts:
     paths:
       - target/java-project-0.0.1-SNAPSHOT.jar
-
-test:
-  stage: test
-  script: mvn test
