@@ -12,3 +12,12 @@ unittest: mvn test
 
 script:
   - mvn compile
+
+jobs:
+  include:
+    - stage: "compile"
+      script: mvn compile
+    - stage: "test"
+      script: mvn test
+    - stage: "package"
+      script: mvn package
