@@ -11,7 +11,7 @@ install: mvn install -DskipTests=true
 unittest: mvn test
 
 script:
-  - mvn compile
+  - echo "Start......"
 
 jobs:
   include:
@@ -21,3 +21,7 @@ jobs:
       script: mvn test
     - stage: "package"
       script: mvn package
+
+deploy:
+  addons:
+    artifacts: true
