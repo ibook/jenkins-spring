@@ -16,11 +16,11 @@ pipeline {
             }
         }
 
-        stage("准备环境") {
+        stage("测试") {
             steps {
                 //sh "apt-get update"
                 //sh "apt-get install automake pkg-config build-essential libcurl4-openssl-dev libjson-c-dev -y"
-              	sh "mvn --version"
+              	sh "mvn test"
             }
         }
         
