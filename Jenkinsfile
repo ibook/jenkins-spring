@@ -34,16 +34,16 @@ pipeline {
 		
         stage("保存构建产物") {
             steps {
-                archiveArtifacts artifacts: 'target/java-project-0.0.1-SNAPSHOT.jar', fingerprint: true
+                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
               	sh "ls -l target/*.jar"
             }
         }
         stage("部署"){
       		steps {
               parallel "上传": {
-                    sh 'sshpass -p Lhw4221455 scp target/java-project-0.0.1-SNAPSHOT.jar root@47.98.153.110:/root/'
+                    sh 'sshpass -p Lhw4221455 scp target/*.jar root@47.98.153.110:/root/'
                 }, "运行": {
-                    sh 'sshpass -p Lhw4221455 ssh -f root@47.98.153.110 java -jar /root/java-project-0.0.1-SNAPSHOT.jar'
+                    sh 'sshpass -p Lhw4221455 ssh -f root@47.98.153.110 java -jar /root/java-project-0.0.2-SNAPSHOT.jar'
                 }
     	    }
     	}
