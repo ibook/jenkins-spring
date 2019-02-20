@@ -38,5 +38,14 @@ pipeline {
               	sh "ls -l target/*.jar"
             }
         }
+        stage("部署"){
+      		steps {
+              parallel "上传": {
+                    sh 'sshpass -p Lhw4221455 scp target/java-project-0.0.1-SNAPSHOT.jar root@47.98.153.110:/root/'
+                }, "运行": {
+                    sh 'sshpass -p Lhw4221455 ssh -f root@47.98.153.110 java -jar /root/java-project-0.0.1-SNAPSHOT.jar'
+                }
+    	    }
+    	}
     }
 }
