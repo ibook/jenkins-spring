@@ -21,6 +21,14 @@ pipeline {
             }
         }
 
+        stage("编译") {
+            steps {
+                sh "mvn package -Dmaven.test.skip=true"
+                //sh "./configure"
+                //sh "make"
+            }
+        }
+
         stage("测试") {
             steps {
                 //sh "apt-get update"
@@ -29,14 +37,6 @@ pipeline {
             }
         }
         
-        stage("编译") {
-            steps {
-                sh "mvn package"
-                //sh "./configure"
-                //sh "make"
-            }
-        }
-		
         stage("保存构建产物") {
             steps {
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
