@@ -5,7 +5,12 @@ pipeline {
         label "java-8"
     }
     stages  {
-        
+        stage("初始化") {
+        	steps{
+        	    sh 'apt install -y sshpass'
+                sh 'sshpass -v'
+        	}
+        }
         stage("检出") {
             steps {
                 sh 'ci-init'
