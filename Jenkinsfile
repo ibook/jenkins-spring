@@ -50,7 +50,7 @@ pipeline {
 			            sh 'sshpass -p Lhw4221455 ssh -f root@47.98.153.110 pkill -f java-project-0.0.2-SNAPSHOT'
 			         }
 			    }
-			    stage('test1') {
+			    stage('start') {
 			         steps {
 			            sh 'sshpass -p Lhw4221455 scp target/*.jar root@47.98.153.110:/root/'
                 	    sh 'sshpass -p Lhw4221455 ssh -f root@47.98.153.110 java -jar /root/java-project-0.0.2-SNAPSHOT.jar'
